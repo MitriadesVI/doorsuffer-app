@@ -1,0 +1,309 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variables base */
+:root {
+  --font-primary: 'Inter', sans-serif;
+  --color-bg: #ffffff;
+  --color-text: #333333;
+  --color-primary: #4f46e5;
+  --color-primary-dark: #4338ca; /* Added as it was used in JS, define appropriately */
+  --color-primary-accent: #6d28d9; /* Added as it was used in JS, define appropriately */
+  --color-secondary: #e5e7eb;
+  --color-secondary-accent: #d1d5db; /* Added as it was used in JS, define appropriately */
+  --color-secondary-light: #f3f4f6; /* Added as it was used in JS, define appropriately */
+  --color-accent: #8b5cf6;
+  --color-accent-dark: #7c3aed; /* Added as it was used in JS, define appropriately */
+  --color-success: #10b981;
+  --color-text-secondary: #6b7280; /* Added as it was used in JS, define appropriately */
+  --color-bg-alt: #f9fafb; /* Added as it was used in JS, define appropriately */
+  --border-radius: 0.5rem;
+  --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --subtle-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Added as it was used in JS, define appropriately */
+}
+
+/* Tema Art Nouveau */
+.theme-artnouveau {
+  --font-primary: 'Playfair Display', serif;
+  --color-bg: #f8f3e8;
+  --color-text: #3d2c1c;
+  --color-primary: #a86f3e;
+  --color-primary-dark: #8c5a2e;
+  --color-primary-accent: #c08d5f;
+  --color-secondary: #e7d8c3;
+  --color-secondary-accent: #d8c8b3;
+  --color-secondary-light: #f0e6d8;
+  --color-accent: #738c65;
+  --color-accent-dark: #5a704f;
+  --color-success: #8c6553;
+  --color-text-secondary: #5c4b3c;
+  --color-bg-alt: #f3efe5;
+  --border-radius: 0.25rem;
+  --box-shadow: 0 4px 10px -1px rgba(135, 89, 46, 0.2), 0 2px 6px -1px rgba(135, 89, 46, 0.15);
+  --subtle-shadow: 0 2px 4px -1px rgba(135, 89, 46, 0.1);
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+}
+
+/* Tema Gótico */
+.theme-gothic {
+  --font-primary: 'Cinzel', serif;
+  --color-bg: #121212;
+  --color-text: #e6e6e6;
+  --color-primary: #8f0e0e;
+  --color-primary-dark: #700b0b;
+  --color-primary-accent: #a91b1b;
+  --color-secondary: #2a2a2a;
+  --color-secondary-accent: #3a3a3a;
+  --color-secondary-light: #222222;
+  --color-accent: #b91c1c;
+  --color-accent-dark: #a01010;
+  --color-success: #991b1b;
+  --color-text-secondary: #b0b0b0;
+  --color-bg-alt: #1a1a1a;
+  --border-radius: 0.125rem;
+  --box-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.4);
+  --subtle-shadow: 0 2px 5px -1px rgba(0,0,0,0.3);
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+}
+
+/* Tema Minimalista */
+.theme-minimal {
+  --font-primary: 'DM Sans', sans-serif;
+  --color-bg: #f9fafb;
+  --color-text: #1f2937;
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-accent: #3b82f6;
+  --color-secondary: #e5e7eb;
+  --color-secondary-accent: #d1d5db;
+  --color-secondary-light: #f3f4f6;
+  --color-accent: #60a5fa;
+  --color-accent-dark: #3b82f6; /* Same as primary-accent here, can be different */
+  --color-success: #10b981;
+  --color-text-secondary: #4b5563;
+  --color-bg-alt: #ffffff;
+  --border-radius: 0.75rem;
+  --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --subtle-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+}
+
+/* Componentes Reutilizables */
+.card {
+  background-color: var(--color-bg-alt, white); /* Fallback to white */
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden; /* Generally good for cards */
+}
+
+.btn {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none; /* Ensure buttons don't have default borders */
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.btn-icon {
+  background-color: var(--color-primary);
+  color: white;
+  width: 2rem; /* 32px */
+  height: 2rem; /* 32px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px; /* full round */
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-icon:hover {
+  filter: brightness(1.1);
+}
+
+input[type="checkbox"] {
+  accent-color: var(--color-primary);
+}
+
+input, select, textarea { /* Added textarea */
+  border: 1px solid var(--color-secondary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  padding: 0.5rem; /* Added default padding */
+}
+
+/* Estilos para animaciones y elementos específicos (movidos de anidamiento incorrecto) */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification-item { /* This class was used by the Notification component in App.jsx */
+  /* The Notification component in App.jsx uses inline styles for animation name,
+     so this class might not be strictly necessary unless used for other purposes or if inline styles are removed.
+     The inline style uses 'slideIn 0.3s ease-out forwards'.
+     If this class is intended for that, ensure the animation property is set here.
+     animation: slideIn 0.3s ease-out forwards; (Example)
+  */
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; /* Consider var(--color-secondary) */
+  transition: 0.4s;
+  border-radius: 1.5rem; /* 24px if base font is 16px */
+}
+
+.toggle-slider-before { /* This seems to be for the circle inside the toggle */
+  position: absolute;
+  content: "";
+  height: 1.1rem; /* ~18px */
+  width: 1.1rem;  /* ~18px */
+  left: 0.2rem;   /* 3.2px */
+  bottom: 0.2rem; /* 3.2px */
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+
+/* Ajustes específicos para temas */
+.theme-artnouveau .card {
+  background-color: var(--color-bg-alt, #fcf9f2); /* Use theme-specific bg-alt */
+  border-width: 1px;
+  position: relative;
+}
+
+.theme-artnouveau .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-accent, #d4a76a), var(--color-primary)); /* Use theme vars */
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.theme-gothic .card {
+  background-color: var(--color-bg-alt, #1a1a1a); /* Use theme-specific bg-alt */
+  border-color: var(--color-secondary-accent, #3a3a3a); /* Use theme-specific var */
+  border-width: 1px;
+}
+
+.theme-gothic h1, .theme-gothic h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.theme-minimal .card {
+  background-color: var(--color-bg-alt, white); /* Use theme-specific bg-alt */
+  border-width: 1px;
+  border-color: var(--color-secondary, #e5e7eb); /* Use theme-specific var */
+}
+
+
+/* --- INICIO: Estilos añadidos según tu solicitud --- */
+
+/* Estilo para las etiquetas de recurrencia */
+.recurrence-tag {
+  font-size: 0.7rem; /* 11.2px */
+  padding: 0.1rem 0.3rem; /* Small padding */
+  border-radius: 0.25rem; /* Softer radius */
+  margin-left: 0.3rem; /* Small margin */
+  opacity: 0.8;
+  background-color: var(--color-secondary-accent); /* Use a variable */
+  color: var(--color-text-secondary); /* Use a variable for text */
+  font-weight: 500;
+}
+
+/* Estilos para la visualización de submetas */
+.subgoal-list {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 0.5rem; /* 8px */
+  padding-right: 0.25rem; /* Space for scrollbar */
+}
+
+/* Animación para notificaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.notification { /* General notification class, if different from notification-item */
+  animation: fadeIn 0.3s ease-out forwards;
+  /* This might conflict or supplement the inline styles in Notification.jsx which already define animation.
+     Ensure consistency or choose one method. */
+}
+
+/* Estilos para el selector de días de la semana */
+.day-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem; /* 4px */
+}
+
+.day-selector label {
+  cursor: pointer;
+  padding: 0.25rem 0.5rem; /* 4px 8px */
+  border-radius: 0.25rem; /* 4px */
+  font-size: 0.8rem; /* ~13px */
+  transition: all 0.2s ease-in-out; /* Smoother transition */
+  border: 1px solid var(--color-secondary); /* Base border */
+  background-color: var(--color-bg); /* Base background */
+  color: var(--color-text); /* Base text color */
+}
+
+.day-selector label:hover {
+  background-color: var(--color-secondary-light); /* Lighter hover */
+  border-color: var(--color-secondary-accent);
+  opacity: 1; /* Full opacity on hover */
+}
+
+.day-selector input[type="checkbox"]:checked + span { /* If checkbox is hidden and label is styled based on check */
+  /* This requires specific HTML structure (e.g., hiding checkbox and styling a sibling span) */
+  /* For the current structure where label wraps input, direct styling of label on input:checked is tricky without JS */
+}
+
+.day-selector label.selected { /* Alternative: Add a class dynamically if checkbox is checked */
+    background-color: var(--color-primary-accent);
+    color: white;
+    border-color: var(--color-primary);
+}
+/* --- FIN: Estilos añadidos según tu solicitud --- */
